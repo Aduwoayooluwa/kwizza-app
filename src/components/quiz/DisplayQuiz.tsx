@@ -4,7 +4,7 @@ import Card from './Card'
 import { resetQuizHandler, startQuizHandler } from './helper'
 import Start from './Start'
 import End from './End'
-import useGetquiz from '@/hooks/useGetQuiz'
+import useFetchQuiz from '@/hooks/useGetQuiz'
 
 type Props = {}
 
@@ -19,7 +19,7 @@ const DisplayQuiz = (props: Props) => {
     let POSITION_STEP = 1; // this is the number of steps [position]
 
     // custom hook  to display the quiz questions
-    const { quiz }: any = useGetquiz()
+    const { quiz }: any = useFetchQuiz("")
 
     const quizStartHandler = () => {
         setStep(2);
