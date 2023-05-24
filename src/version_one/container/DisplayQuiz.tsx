@@ -5,6 +5,7 @@ import Quiz from '../components/Quiz'
 import supabase from '@/utils/supabase'
 import Navbar from '@/Layout/Navbar'
 import Button from '@/components/material/Button'
+import Link from 'next/link'
 
 
 type Props = {
@@ -49,8 +50,6 @@ const DisplayQuiz =  ({ table }: Props) => {
     if (isLoading) {
         return (
             <div className=''>
-                <Navbar />
-
                 <section className='py-20 w-full grid place-items-center'>
                     Loading.....
                 </section>
@@ -64,7 +63,11 @@ const DisplayQuiz =  ({ table }: Props) => {
             <p className='text-white font-bold text-[23px] md:[30px]'>Answer All Questions</p>
             <Quiz quizzes={quiz} />
 
-            <Button name='Submit' />
+
+            <Link className='w-full' href={"/score/your-score"}>
+                <Button name='Submit' />
+            </Link>
+            
         </div>
         </>
         
