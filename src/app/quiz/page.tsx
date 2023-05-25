@@ -1,6 +1,6 @@
+"use client"
 import Navbar from '@/Layout/Navbar'
 import Button from '@/components/material/Button'
-import DisplayQuiz from '@/version_one/container/DisplayQuiz'
 import Link from 'next/link'
 import React from 'react'
 
