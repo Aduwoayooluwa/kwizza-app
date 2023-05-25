@@ -7,7 +7,7 @@ import React from 'react'
 type Props = {}
 
 const page = (props: Props) => {
-    const username =  sessionStorage.getItem('username')
+    const username =  sessionStorage.getItem('username')!
     return (
         <div className='flex flex-col items-center bg-secondary h-screen w-full'>
             <Navbar />
