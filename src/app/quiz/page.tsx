@@ -7,13 +7,14 @@ import React from 'react'
 type Props = {}
 
 const page = (props: Props) => {
+    const username =  sessionStorage.getItem('username')
     return (
         <div className='flex flex-col items-center bg-secondary h-screen w-full'>
             <Navbar />
 
             <main className='py-20 w-full h-full grid place-items-center'>
                 <div className='w-full md:w-[600px]  grid place-items-center'>
-                    <p className='font-bold text-[23px] md:-[32px] text-center'>Welcome, Ayo. It is time for you to begin your test. Kindly click your class</p>
+                    <p className='font-bold text-[23px] md:-[32px] text-center'>Welcome, { username }. It is time for you to begin your test. Kindly click your class</p>
 
                     <section className='w-full mt-20 px-6'>
                     <div className='my-6'>

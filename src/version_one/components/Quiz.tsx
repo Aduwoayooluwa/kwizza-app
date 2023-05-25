@@ -25,7 +25,6 @@ const Quiz = ({ quizzes}: Props) => {
                             <div className='font-semibold text-lg md:text-xl flex items-center'>
                                 <p>{data?.id}.</p>
                                 <p> Type in the Word You hear</p>
-                                {data?.correct_answer}
                             </div>
                             <div className='w-full py-6 grid place-items-center  h-full'>
                                 <audio  controlsList='nodownload' controls className='my-2'>

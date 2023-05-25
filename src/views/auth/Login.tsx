@@ -29,7 +29,7 @@ const Login = () => {
     };
 
     return (
-        <div style={{backgroundImage: "url('bg-image.jpg')"}} className="flex flex-col bg-center bg-cover items-center justify-center h-screen">
+        <div style={{backgroundImage: "url('bg-image.webp')"}} className="flex flex-col bg-center bg-cover items-center justify-center h-screen">
         <div className={`${error ! == "" && 'shadow bg-white my-3 p-3'}`}>
             <p className='text-red-500 text-sm'>{error || success}</p>
         </div>
