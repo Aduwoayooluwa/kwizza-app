@@ -3,7 +3,6 @@ import Button from '@/components/material/Button'
 import InputField from '@/components/material/InputField'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import ProtectedPage from '../protected-page'
 
 type Props = {}
 
@@ -34,9 +33,6 @@ const UserLoginInfo = (props: Props) => {
             </div>
             
         </div>
-    </>
-
-        
     )
 }
 
