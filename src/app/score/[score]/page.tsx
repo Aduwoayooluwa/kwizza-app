@@ -21,7 +21,7 @@ const Score = ({ params: { score }}: any) => {
             />
             <div className='leading-10 bg-secondary md:w-[400px] w-full h-fit py-6 flex flex-col items-center'>
                 <p className='font-medium text-lg'>Hello { username }, your score is <span className='text-2xl font-semibold'>{ userScore }</span></p>
-                <p>Your Score Percentage is {(userScore / 20) * 100 }</p>
+                <p>Your Score Percentage is {(userScore / 15) * 100 }</p>
                 
                 <Link className='mt-8' href="/start">
                     <Button onClick={() => {
