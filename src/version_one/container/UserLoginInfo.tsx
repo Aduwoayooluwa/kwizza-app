@@ -15,7 +15,7 @@ const UserLoginInfo = (props: Props) => {
             setMessage("Kindly, Enter your name to Start")
         }
             sessionStorage.setItem("username", inputField)
-            console.log('flel', inputField);
+            //console.log('flel', inputField);
         
     }
     return (
