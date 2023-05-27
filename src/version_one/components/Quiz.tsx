@@ -23,7 +23,7 @@ const Quiz = ({ quizzes}: Props) => {
                     return (
                         <div key={data?.id} className='bg-white px-3 md:px-0 py-3 w-full md:w-[800px] my-6 leading-8  h-full grid place-items-center '>
                             <div className='text-lg md:text-xl px-3'>
-                                <p className='font-semibold mb-2 text-center '>Question {index}</p>
+                                <p className='font-semibold mb-2 text-center '>Question {index + 1}</p>
                                 <p className='text-xs md:text-sm'>{data?.meaning}</p>
                             </div>
                             <div className='w-full py-6 grid place-items-center  h-full'>
