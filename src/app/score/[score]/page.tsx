@@ -13,6 +13,7 @@ const Score = ({ params: { score }}: any) => {
     console.log(score)
     const {width, height} = useWindowSize()
     const username = sessionStorage.getItem("username")!
+
     return (
         <div className='h-screen w-full grid px-3 md:px-0 place-items-center'>
             <Confetti
@@ -21,11 +22,12 @@ const Score = ({ params: { score }}: any) => {
             />
             <div className='leading-10 bg-secondary md:w-[400px] w-full h-fit py-6 flex flex-col items-center'>
                 <p className='font-medium text-lg'>Hello { username }, your score is <span className='text-2xl font-semibold'>{ userScore }</span></p>
-                <p>Your Score Percentage is {(userScore / 15) * 100 }</p>
+                <p>Your Score Percentage is {Math.round((userScore / 15) * 100 )}%</p>
                 
-                <Link className='mt-8' href="/start">
+                <Link className='mt-8' href="/auth">
                     <Button onClick={() => {
-                        localStorage.setItem('', '')
+                        sessionStorage.removeItem('isAuth');
+                        sessionStorage.removeItem('username');
                     }} name='End Quiz'/>
                 </Link>
             </div>

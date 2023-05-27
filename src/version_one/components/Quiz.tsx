@@ -37,7 +37,7 @@ const Quiz = ({ quizzes}: Props) => {
                                 }} type='text' className='w-full md:w-[400px]' placeholder='type answer..'/>
                             </div>
                             <button onClick={() => {
-                                if (data?.correct_answer === userAnswer) {
+                                if (data?.correct_answer?.toLowerCase() === userAnswer?.toLowerCase()) {
                                     // score = score + 1;
                                     // savedQuestions.add(data?.correct_answer)
                                     incrementScore(data?.correct_answer)

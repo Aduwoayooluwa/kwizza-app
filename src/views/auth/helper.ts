@@ -19,8 +19,8 @@ export async function signInEmailAndPassword(email:string, password:string, setD
     }
 }
 
-export async function signUp(email:string, password:string, setDone:any, setError: any) {
-    const { data, error } = await supabase.auth.signInWithPassword({
+export async function signUp(email:string, password:string, setDone:any, setError: any, setErrorStatus: any) {
+    const { data, error } = await supabase.auth.signUp({
         email,
         password
     })
@@ -28,6 +28,7 @@ export async function signUp(email:string, password:string, setDone:any, setErro
     if (error) {
         console.log("error while signing in")
         setError(error?.message)
+        setErrorStatus(true)
     }
 
     else {

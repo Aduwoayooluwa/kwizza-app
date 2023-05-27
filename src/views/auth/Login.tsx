@@ -1,7 +1,8 @@
 "use client"
 import { useState } from 'react';
 import { signInEmailAndPassword } from './helper';
-
+import BinanceLoader from '@/components/loader/BinanceLoader';
+import { useRouter } from 'next/navigation';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -9,6 +10,8 @@ const Login = () => {
     const [success, setSuccess] = useState("")
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+
+    const router = useRouter()
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -18,6 +21,8 @@ const Login = () => {
         try {
             
             signInEmailAndPassword(email, password, setSuccess, setError);
+            router.push("/start")
+            sessionStorage.setItem("isAuth", "true")
         }
         catch (error) {
             setLoading(false)
@@ -68,7 +73,7 @@ const Login = () => {
             <button onClick={(e:any) => {
                 handleSubmit(e)
             }} disabled={loading} className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md">
-            {loading ? "Loading" : "Login"}
+            {loading ? (<BinanceLoader />) : "Login"}
             </button>
         </section>
         </div>

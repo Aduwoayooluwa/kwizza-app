@@ -1,9 +1,41 @@
+"use client"
 import Image from 'next/image'
-import React from 'react'
-
+import React, { useState} from 'react'
+import { signUp } from './helper'
+import BinanceLoader from '@/components/loader/BinanceLoader'
+import { useRouter } from 'next/navigation'
 type Props = {}
 
 const Register = (props: Props) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [success, setSuccess] = useState("")
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [errorStatus, setErrorStatus] = useState(false)
+    const router = useRouter()
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setLoading(true);
+      
+        try {
+          await signUp(email, password, setSuccess, setError, setErrorStatus);
+      
+          if (!errorStatus) {
+            router.push("/start");
+            sessionStorage.setItem("isAuth", "true");
+          }
+        } catch (error) {
+          setError("An error occurred. Please try again."); // Set a generic error message
+          setErrorStatus(true);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+
     return (
         <section className="relative flex flex-wrap bg-tertiary h-screen items-center">
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2  lg:px-8 lg:py-24">
@@ -24,6 +56,10 @@ const Register = (props: Props) => {
                     type="email"
                     className="w-full rounded-lg border-gray-200  focus:border-primary border outline-none p-4 pe-12 text-sm shadow-sm"
                     placeholder="Enter email"
+                    onChange={(event) => {
+                        event.preventDefault();
+                        setEmail(event.target.value)}}
+                    required
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -53,6 +89,10 @@ const Register = (props: Props) => {
                     type="password"
                     className="w-full border focus:border-primary outline-none rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                     placeholder="Enter password"
+                    onChange={(event: any) => {
+                        event.preventDefault()
+                        setPassword(event.target.value)}}
+                    required
                 />
 
                 <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -88,9 +128,12 @@ const Register = (props: Props) => {
 
                 <button
                 type="submit"
-                className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                className={`grid place-items-center rounded-lg bg-blue-500 w-[100px] h-[40px] ${loading ? "px-0 py-0" : "px-5 py-3"} text-sm font-medium text-white`}
+                onClick={(e:any) => {
+                    handleSubmit(e)
+                }} disabled={loading}
                 >
-                Sign Up
+                {loading ? (<BinanceLoader />): "Sign Up"}
                 </button>
             </div>
             </form>
