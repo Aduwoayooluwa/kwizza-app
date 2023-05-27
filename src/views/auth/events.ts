@@ -17,7 +17,7 @@ export const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>, setLo
     } 
 }; 
 
-export const handleSignUpSubmit = (event: React.FormEvent<HTMLFormElement>, setLoading: any, signInEmailAndPassword:any, setSuccess:any, setError:any,  email: string, password:string, confirmedPassword:string) => {
+export const handleSignUpSubmit = (event: React.FormEvent<HTMLFormElement>, setLoading: any, signInEmailAndPassword:any, setSuccess:any, setError:any,  email: string, password:string, confirmedPassword:string, setErrorStatus: any) => {
     event.preventDefault();
     // Handle login logic here
     console.log(email, password)
@@ -26,7 +26,7 @@ export const handleSignUpSubmit = (event: React.FormEvent<HTMLFormElement>, setL
         if (password !== confirmedPassword) {
             return;
         }
-        signUp(email, password, setSuccess, setError);
+        signUp(email, password, setSuccess, setError, setErrorStatus);
     }
     catch (error) {
         setLoading(false)
