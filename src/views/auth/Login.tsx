@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { signInEmailAndPassword } from './helper';
 import BinanceLoader from '@/components/loader/BinanceLoader';
 import { useRouter } from 'next/navigation';
+import Navbar from '@/Layout/Navbar';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -34,7 +35,9 @@ const Login = () => {
     };
 
     return (
-        <div style={{backgroundImage: "url('bg-image.webp')"}} className="flex flex-col bg-center bg-cover items-center justify-center h-screen">
+        <>
+        <Navbar />
+            <div style={{backgroundImage: "url('bg-image.webp')"}} className="flex flex-col bg-center bg-cover items-center justify-center h-screen">
         <div className={`${error ! == "" && 'shadow bg-white my-3 p-3'}`}>
             <p className='text-red-500 text-sm'>{error || success}</p>
         </div>
@@ -77,6 +80,8 @@ const Login = () => {
             </button>
         </section>
         </div>
+        </>
+        
     );
 };
 

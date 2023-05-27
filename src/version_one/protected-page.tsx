@@ -1,4 +1,5 @@
 "use client"
+import Navbar from '@/Layout/Navbar';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -16,7 +17,7 @@ const ProtectedPage = ({ children }: any) => {
 
     return (
         <>
-
+            <Navbar />
             { children }
 
         </>

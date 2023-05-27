@@ -4,6 +4,7 @@ import React, { useState} from 'react'
 import { signUp } from './helper'
 import BinanceLoader from '@/components/loader/BinanceLoader'
 import { useRouter } from 'next/navigation'
+import Navbar from '@/Layout/Navbar'
 type Props = {}
 
 const Register = (props: Props) => {
@@ -37,6 +38,8 @@ const Register = (props: Props) => {
       
 
     return (
+        <>
+        <Navbar />
         <section className="relative flex flex-wrap bg-tertiary h-screen items-center">
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2  lg:px-8 lg:py-24">
             <div className="mx-auto max-w-lg text-center">
@@ -156,6 +159,8 @@ const Register = (props: Props) => {
             /> */}
         </div>
         </section>
+        </>
+        
     )
 }
 

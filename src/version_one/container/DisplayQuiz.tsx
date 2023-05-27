@@ -6,6 +6,7 @@ import supabase from '@/utils/supabase'
 import Navbar from '@/Layout/Navbar'
 import Button from '@/components/material/Button'
 import Link from 'next/link'
+import ProtectedPage from '../protected-page'
 
 
 type Props = {
@@ -57,8 +58,8 @@ const DisplayQuiz =  ({ table }: Props) => {
         )
     }
     return (
-        <>
-        <Navbar />
+        <ProtectedPage>
+        
         <div className='pt-20 bg-secondary min-h-screen w-full grid place-items-center'>
             <p className='text-white font-bold text-[23px] md:[30px]'>Answer All Questions</p>
             <Quiz quizzes={quiz} />
@@ -69,7 +70,7 @@ const DisplayQuiz =  ({ table }: Props) => {
             </Link>
             
         </div>
-        </>
+        </ProtectedPage>
         
     )
 }
