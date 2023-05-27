@@ -19,12 +19,12 @@ const Quiz = ({ quizzes}: Props) => {
     return (
         <div className='w-full flex flex-col items-center px-3 md:px-0'>
             {
-                quizzes?.map((data:any) => {
+                quizzes?.map((data:any, index: number) => {
                     return (
                         <div key={data?.id} className='bg-white px-3 md:px-0 py-3 w-full md:w-[800px] my-6 leading-8  h-full grid place-items-center '>
-                            <div className='font-semibold text-lg md:text-xl flex items-center'>
-                                <p>{data?.id}.</p>
-                                <p> Type in the Word You hear</p>
+                            <div className='text-lg md:text-xl px-3'>
+                                <p className='font-semibold mb-2 text-center '>Question {index}</p>
+                                <p className='text-xs md:text-sm'>{data?.meaning}</p>
                             </div>
                             <div className='w-full py-6 grid place-items-center  h-full'>
                                 <audio  controlsList='nodownload' controls className='my-2'>
